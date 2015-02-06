@@ -1,6 +1,7 @@
 class repos{
-     package {"webtatic":
-     ensure => present,
+     include epel
+     package {"webtatic-release":
+     ensure => installed,
      source => "http://mirror.webtatic.com/yum/el6/latest.rpm",
      provider => rpm,
      } 
