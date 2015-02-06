@@ -1,19 +1,17 @@
 node 'web.intrepidtravel.com.uat.local'{
+	class { '::ntp':
+  		servers => [ '10.2.1.2', '10.1.1.2' ],
+	}
 	include repos
-	include ntp
 	include nginx
 }
 
 node 'db.intrepidtravel.com.uat.local'{	
-	include ntp
-	include mysql	
+	class { '::ntp':
+  		servers => [ '10.2.1.2', '10.1.1.2' ],
+	}
 
-    	file { "mysql_conf" :
-        	name   => '/etc/my.cnf',
-        	ensure => present,
-        	owner  => root,
-        	group  => root,
-       		mode   => "0644",
-        	source => '/vagrant/files/my.cnf',
+	class { "mysql":
+ 		source => "/vagrant/files/my.cnf",
     	}
 }
