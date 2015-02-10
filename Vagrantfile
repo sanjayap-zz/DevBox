@@ -19,13 +19,13 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "web" do |web|
     web.vm.box = "CentOS65"
-    web.vm.host_name = "web.intrepidtravel.com.uat.local"
+    web.vm.host_name = "web.intrepidtravel.com.dev.local"
     web.vm.network "private_network", ip: "172.28.128.3"
   end
 
   config.vm.define "db" do |db|
     db.vm.box = "CentOS65"
-    db.vm.host_name = "db.intrepidtravel.com.uat.local"
+    db.vm.host_name = "db.intrepidtravel.com.dev.local"
     db.vm.network "private_network", ip: "172.28.128.4"
   end
 
