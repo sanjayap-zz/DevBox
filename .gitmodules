@@ -16,3 +16,15 @@
 [submodule "modules/puppi"]
 	path = modules/puppi
 	url = https://github.com/example42/puppi.git
+[submodule "modules/selinux"]
+	path = modules/selinux
+	url = https://github.com/jfryman/puppet-selinux.git
+[submodule "modules/memcached"]
+	path = modules/memcached
+	url = https://github.com/example42/puppet-memcached.git
+[submodule "modules/git"]
+	path = modules/git
+	url = https://github.com/puppetlabs/puppetlabs-git.git
+[submodule "modules/stdmod"]
+	path = modules/stdmod
+	url = https://github.com/stdmod/stdmod.git
