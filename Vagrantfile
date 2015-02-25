@@ -19,13 +19,15 @@ Vagrant.configure(2) do |config|
 
   config.vm.define "web" do |web|
     web.vm.box = "CentOS65"
-    web.vm.host_name = "web.intrepidtravel.com.dev.local"
+    web.vm.host_name = "web.intrepidtravel.com.dev.internal"
     web.vm.network "private_network", ip: "172.28.128.3"
+    web.vm.synced_folder "../projects/intrepid", "/opt/projects/intrepid",
+	    :create => true
   end
 
   config.vm.define "db" do |db|
     db.vm.box = "CentOS65"
-    db.vm.host_name = "db.intrepidtravel.com.dev.local"
+    db.vm.host_name = "db.intrepidtravel.com.dev.internal"
     db.vm.network "private_network", ip: "172.28.128.4"
   end
 
