@@ -1,0 +1,21 @@
+class motd {$template = "undef"}
+{	
+	$default_template = "default.internal"
+
+	if $template == undef {
+        	$_template = $default_template
+      	}
+     	 else {
+        	$_template = $template
+      	}
+
+	file { 
+        	"/etc/motd":
+            		ensure => present,
+            		owner  => root,
+            		group  => root,
+			source => "puppet:///modules/motd/$_template",
+            		mode   => "0644";
+            		
+     	}
+}

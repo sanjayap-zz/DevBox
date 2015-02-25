@@ -4,3 +4,12 @@
 [submodule "modules/erlang"]
 	path = modules/erlang
 	url = https://github.com/garethr/garethr-erlang.git
+[submodule "modules/selinux"]
+	path = modules/selinux
+	url = https://github.com/jfryman/puppet-selinux.git
+[submodule "modules/stdlib"]
+	path = modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "modules/ntp"]
+	path = modules/ntp
+	url = https://github.com/puppetlabs/puppetlabs-ntp.git

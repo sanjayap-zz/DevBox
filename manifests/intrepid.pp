@@ -1,4 +1,4 @@
-node 'web.intrepidtravel.com.dev.local'{
+node 'web.intrepidtravel.com.dev.internal'{
 	class { selinux:
   		mode => 'disabled'
 	}
@@ -6,7 +6,7 @@ node 'web.intrepidtravel.com.dev.local'{
   		servers => [ '10.2.1.2', '10.1.1.2' ],
 	}
 	class { 'motd':
-  		template => 'motd.intrepid.web.dev.local',
+  		template => 'motd.intrepid.web.dev.internal',
 	} 
 	include repos
 	include nginx
@@ -14,11 +14,12 @@ node 'web.intrepidtravel.com.dev.local'{
 	include php56
 	include git
 	include bash
-	include memcached	
+	include memcached		
+	include '::rabbitmq'
 	
 }
 
-node 'db.intrepidtravel.com.dev.local'{	
+node 'db.intrepidtravel.com.dev.internal'{	
 	include bash
 	class { selinux:
   		mode => 'disabled'
@@ -27,7 +28,7 @@ node 'db.intrepidtravel.com.dev.local'{
   		servers => [ '10.2.1.2', '10.1.1.2' ],
 	}
 	class { 'motd':
-  		template => 'motd.intrepid.db.dev.local',
+  		template => 'motd.intrepid.db.dev.internal',
 	}
 	class { "mysql":
  		source => "/vagrant/files/my.cnf",
